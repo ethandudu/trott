@@ -9,14 +9,13 @@ const router = express.Router();
 
 // Route pour l'inscription
 router.post('/register', async (req, res) => {
-    const { email, password, displayName } = req.body || {};
+    const { email, password } = req.body || {};
     
     // Validation sans utiliser de return prématuré
-    if (!req.body || !email || !password || !displayName) {
+    if (!req.body || !email || !password) {
         const missingFields = [];
         if (!email) missingFields.push('email');
         if (!password) missingFields.push('password');
-        if (!displayName) missingFields.push('displayName');
         res.status(400).json({ error: `Missing fields: ${missingFields.join(', ')}` });
     } else {
         try {

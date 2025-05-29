@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 // ROUTES
 import authRoutes from './routes/auth';
 import positionRoutes from './routes/position';
+import deviceRoutes from './routes/device';
 
 // MIDDLEWARES
 import { authMiddleware } from './middlewares/authMiddleware';
@@ -18,6 +19,7 @@ app.use(express.json());
 
 app.use('/auth', authRoutes);
 app.use('/api', positionRoutes);
+app.use('/api', deviceRoutes);
 
 // /ping route
 app.get('/ping', (_, res) => {
